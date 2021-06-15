@@ -18,6 +18,9 @@ namespace School.Controllers
         {
             _context = context;
         }
+        
+        // Действие при котором вызывается хранимая процедура
+        // Результат её выполнения - модель, которую передаю в представление
         public async Task<IActionResult> BestStud()
         {
 
@@ -32,6 +35,8 @@ namespace School.Controllers
                 return View("index", students);
             }
         }
+        // Действие при котором вызывается хранимая процедура
+        // Результат её выполнения - модель, которую передаю в представление
         public async Task<IActionResult> AvgMark()
         {
             

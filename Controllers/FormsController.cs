@@ -17,7 +17,8 @@ namespace School.Controllers
         {
             _context = context;
         }
-
+        // Действие при котором вызывается хранимая процедура
+        // Результат её выполнения - модель, которую передаю в представление
         public async Task<IActionResult> BestForm()
         {
             using (SchoolDbContext db = new SchoolDbContext())

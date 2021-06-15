@@ -39,6 +39,8 @@ namespace School.Models
         public virtual Form Form { get; set; }
         [InverseProperty(nameof(Journal.Student))]
         public virtual ICollection<Journal> Journals { get; set; }
+
+        // Создано, чтобы выводить полное имя в полях других таблиц
         public string FullName
         {
             get

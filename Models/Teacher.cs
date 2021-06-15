@@ -32,6 +32,8 @@ namespace School.Models
 
         [InverseProperty(nameof(Form.Teacher))]
         public virtual ICollection<Form> Forms { get; set; }
+
+        // Создано, чтобы выводить полное имя в полях других таблиц
         public string FullName
         {
             get
