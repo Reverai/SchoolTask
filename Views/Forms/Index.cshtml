@@ -1,0 +1,50 @@
+﻿@model IEnumerable<School.Models.Form>
+
+@{
+    ViewData["Title"] = "Классы";
+}
+
+<h1>Классы</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<p>
+    <a asp-action="BestForm">Список классов в порядке убывания среднего бала учеников.</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FormNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.FullName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FormId">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.FormId">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.FormId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

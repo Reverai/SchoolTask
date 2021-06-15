@@ -1,0 +1,53 @@
+﻿@model IEnumerable<School.Models.Journal>
+
+@{
+    ViewData["Title"] = "Оценки";
+}
+
+<h1>Оценки</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarkDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarkDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.SubjectName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.JournalId">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.JournalId">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.JournalId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
